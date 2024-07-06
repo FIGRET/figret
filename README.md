@@ -1,4 +1,4 @@
-## Getting Started (10 human-minutes + 10 compute-minutes)
+## Getting Started
 1. Install the python packages which are listed in requirements.txt.
 ```sh
 pip install -r requirements.txt
