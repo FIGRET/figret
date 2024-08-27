@@ -1,10 +1,43 @@
-## Getting Started
-1. Install the python packages which are listed in requirements.txt.
-```sh
-pip install -r requirements.txt
+## Overview
+This repository contains the source code for the paper "[FIGRET: Fine-Grained Robustness-Enhanced Traffic Engineering]((https://doi.org/10.1145/3651890.3672258))". This paper has been accepted by ACM SIGCOMM' 24.
+
+#### Description of paper
+Figret is a fine-grained robustness-enhanced traffic engineering (TE) for wide-area networks (WANs) and data center networks (DCNs). By developing customized robustness strategies based on traffic characteristics of different source-destination pairs and implementing them using deep learning methods, this approach achieves good performance in both bursty and non-bursty scenarios while maintaining a fast solution speed.
+
+#### Code structure
 ```
-2. Install [Gurobi Solver](https://www.gurobi.com). You can request a free academic license [here](https://www.gurobi.com/academia/academic-program-and-licenses/).
-3. Install `torch`, `torch-scatter` and `torch-sparse`. When installing `torch`, `torch-scatter`, and `torch-sparse`, it is essential to choose versions that are compatible with your execution environment (CPU or GPU with a specific version of CUDA). You can follow the [official instructions](https://pytorch.org/get-started/previous-versions/) to download them.
+.
+├── Data                          # test data, each subfolder represents a network, containing topology, paths, and traffic matrices.
+├── benchmarks                    # test code for baselines
+│   └── linear                    # test code for Oblivious, COPE and Pred TE
+├── figret.py                     # test code for figret
+├── figret_helper.py              # command-line arguments for figret
+├── requirements.txt              # python packages required by figret
+└── src                           # source code for figret
+    ├── __init__.py               # package initialization when imported
+    ├── config.py                 # directory configurations
+    ├── figret_env.py             # traffic engineering environment
+    ├── figret_model.py           # model for train, test
+    ├── figret_net.py             # neural network structure for figret
+    ├── figret_simulator.py       # load traffic demands for figret env
+    └── utils.py                  # utility functions for figret
+```
+## Getting Started
+1. Set up the Python environment and Python packages.
+   - Set up Python environment (Python version = 3.8.0), [Miniconda](https://docs.anaconda.com/free/anaconda/install/index.html) or [Anaconda](https://docs.anaconda.com/free/anaconda/install/index.html) is required.
+    ```sh
+     conda create --name figret python=3.8.0
+    ```
+   - Activate the Conda enironment.
+    ```sh
+    conda activate figret
+    ```
+   - Install the python packages which are listed in requirements.txt, requirements.txt does not include `torch`, `torch-scatter`, and `torch-sparse` because these packages need to be installed according to your execution environment. Please refer to the instructions below for downloading these packages..
+    ```sh
+    pip install -r requirements.txt
+    ```
+2. Install `torch`, `torch-scatter` and `torch-sparse`. When installing `torch`, `torch-scatter`, and `torch-sparse`, it is essential to choose versions that are compatible with your execution environment (CPU or GPU with a specific version of CUDA). You can follow the [official instructions](https://pytorch.org/get-started/previous-versions/) to download them.
+3. Install [Gurobi Solver](https://www.gurobi.com). You can request a free academic license [here](https://www.gurobi.com/academia/academic-program-and-licenses/).
 
 ## Evaluating Figret
 To evaluate figret:
@@ -60,3 +93,15 @@ If you have your own dataset and wish to test it, please organize your data acco
 To add another TE implementation to this repo,
 - If the implementation is based on machine learning, add test code to `figret.py` and source code to `src/`
 - If the implementation is based on linear programming, add test code to `benchmarks/linear/` and source code to `benchmarks/linear/linear_src`
+
+### Citation
+If you use our code in your research, please cite our paper:
+```
+@inproceedings{figret,
+title = {FIGRET: Fine-Grained Robustness-Enhanced Traffic Engineering},
+author = {Liu, Ximeng and Zhao, Shizhen and Cui, Yong and Wang, Xinbing},
+booktitle = {Proceedings of the ACM SIGCOMM 2024 Conference},
+pages = {117–135},
+year = {2024}
+}
+```
