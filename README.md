@@ -94,7 +94,7 @@ To add another TE implementation to this repo,
 - If the implementation is based on machine learning, add test code to `figret.py` and source code to `src/`
 - If the implementation is based on linear programming, add test code to `benchmarks/linear/` and source code to `benchmarks/linear/linear_src`
 
-### Citation
+## Citation
 If you use our code in your research, please cite our paper:
 ```
 @inproceedings{figret,
