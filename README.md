@@ -42,22 +42,7 @@ Figret is a fine-grained robustness-enhanced traffic engineering (TE) for wide-a
 ## Evaluating Figret
 To evaluate figret:
 ```
-$ python3 figret.py --topo_name Facebook_tor_a --epochs 3 --batch_size 32 --alpha 0.07
-Population train data from /home/gdp/lxm/FIGRET/src/../Data/Facebook_tor_a/train/1.hist
-100%|█████████████████████████| 2023/2023 [00:11<00:00, 182.91it/s]
-Population train data from /home/gdp/lxm/FIGRET/src/../Data/Facebook_tor_a/train/2.hist
-100%|█████████████████████████| 2023/2023 [00:11<00:00, 181.78it/s]
-Population train data from /home/gdp/lxm/FIGRET/src/../Data/Facebook_tor_a/train/3.hist
-100%|█████████████████████████| 2023/2023 [00:11<00:00, 181.44it/s]
-Population train data from /home/gdp/lxm/FIGRET/src/../Data/Facebook_tor_a/train/4.hist
-100%|█████████████████████████| 449/449 [00:02<00:00, 179.27it/s]
-Population test data from /home/gdp/lxm/FIGRET/src/../Data/Facebook_tor_a/test/5.hist
-100%|█████████████████████████| 2023/2023 [00:11<00:00, 180.72it/s]
-Population test data from /home/gdp/lxm/FIGRET/src/../Data/Facebook_tor_a/test/6.hist
-100%|█████████████████████████| 148/148 [00:00<00:00, 191.62it/s]
-Epoch 1/3: 100%|█████████████████████████| 204/204 [00:38<00:00,  5.31it/s, loss_val=1.81]
-Epoch 2/3: 100%|█████████████████████████| 204/204 [00:36<00:00,  5.66it/s, loss_val=1.66]
-Epoch 3/3: 100%|█████████████████████████| 204/204 [00:36<00:00,  5.63it/s, loss_val=1.59]
+$ python3 figret.py --topo_name Facebook_pod_a --epochs 3 --batch_size 32 --alpha 0.03
 ```
 
 ## Evaluating benchmarks
